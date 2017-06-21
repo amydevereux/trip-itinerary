@@ -1,15 +1,87 @@
 <!doctype html>
+<!--https://dribbble.com/shots/2400235-Your-Trip-Itinerary-->
 <html>
     <head>
+         <link rel="stylesheet" href="https://unpkg.com/basscss@7.1.1/css/basscss.min.css">
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
+        <title>Your trip to New York</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
+       <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
         <!-- Place favicon.ico in the root directory -->
+    <style type="text/css">
+    body, h1, h2, h3, h4, h5, h6, p, li {
+        font-family: 'Rubik', sans-serif;;
+      }
+      .shadow {
+        box-shadow: 0 1px 20px 0 rgba(0,0,0,0.15); 
+        }
+      .rounded {
+        border-radius: 8px; 
+        } 
+        body {
+    background-image: linear-gradient(-35deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(246,246,247,1) 50%,rgba(246,246,247,1) 100%);
+}
+        .stripe {
+            height: 2px;
+            display: block;
+        }
+        .bg-purple {
+            background-color: #873CD9;
+        }
+         .bg-magenta {
+            background-color: #C845F6;
+        }
+        .bg-blue {
+            background-color: #4BB2F8;
+        }
+        .bg-green {
+            background-color: #7BDFC3;
+        }
+         .bg-pink {
+            background-color: #DE5CC7;
+        }
+        .skew {
+    transform: skewY(-35deg);
+}
+.unskew {
+    transform: skewY(35deg);
+}
+    </style>
+  
     </head>
-    <body>
+    <body class="skew">
+    <div class="z1" style="transform: translateY(10vh);">
+        <div class="clearfix col-8 bg-purple rounded stripe"></div>
+        <div class="clearfix col-8 bg-pink mt1 rounded stripe"></div>
+        <div class="clearfix">
+        <div class="col col-4"></div>  
+        <div class="ml4 col col-2 bg-blue mt1 rounded stripe"></div>
+        <div class="ml4 col col-2 bg-green mt1 rounded stripe"></div>
+        </div>
+    </div>
+        <div class="unskew flex flex-center" style="min-height:100vh">
+        <div class="z4 shadow rounded mx-auto" style="background-color: #fafafa">
+        <header class="center">
+        <h1>Your trip to New York</h1>
+        <p>Starts in 3 days</p>
+        </header>
+        <div class="border-bottom border-top p3">
+        <h2>Virgin America Flight 268</h2>
+        <p>Dec 23&mdash;Confirmation</p>
+        <p>#RL27L4</p>
+        <h3>San Francisco SFO</h3>
+        <P>Wed, Dec 23 11:15 PM</P>
+        <h3>New York JFK</h3>
+        <p>Thurs, Dec 24 7:50 AM</p>
+        </div>
+        <div class="center">
+        <p>Check in</p>
+        </div>
+        </div>
+        </div>
     </body>
 </html>
