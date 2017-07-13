@@ -10,11 +10,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
-       <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i" rel="stylesheet">
         <!-- Place favicon.ico in the root directory -->
     <style type="text/css">
     body, h1, h2, h3, h4, h5, h6, p, li {
-        font-family: 'Rubik', sans-serif;;
+        font-family: 'Fira Sans', sans-serif;
+        font-weight: 400;
       }
       .shadow {
         box-shadow: 0 1px 20px 0 rgba(0,0,0,0.15); 
@@ -23,8 +24,10 @@
         border-radius: 8px; 
         } 
         body {
-    background-image: linear-gradient(-35deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(246,246,247,1) 50%,rgba(246,246,247,1) 100%);
-}
+        background-image: linear-gradient(-35deg,rgba(0,0,0,0) 0%,rgba(0,0,0,0) 50%,rgba(246,246,247,1) 50%,rgba(246,246,247,1) 100%);
+        overflow-y: scroll; /* has to be scroll, not auto */
+         -webkit-overflow-scrolling: touch;
+        }
         .stripe {
             height: 2px;
             display: block;
@@ -32,54 +35,137 @@
         .bg-purple {
             background-color: #873CD9;
         }
-         .bg-magenta {
+        .bg-magenta {
             background-color: #C845F6;
         }
         .bg-blue {
             background-color: #4BB2F8;
         }
         .bg-green {
-            background-color: #7BDFC3;
+            background-color: #67D291;
         }
          .bg-pink {
             background-color: #DE5CC7;
         }
         .skew {
-    transform: skewY(-35deg);
+            transform: skewY(-35deg);
+        }
+        .unskew {
+            transform: skewY(35deg);
+        }
+        .h1 {
+            font-size: 28px;
+        }
+        .h2 {
+            font-size: 22px;
+        }
+        .h3 {
+            font-size: 18px;
+        }
+        .letter-spacing {
+            letter-spacing: .1em;
+        }
+        .w600 {
+            font-weight: 600;
+        }
+        .w400 {
+            font-weight: 400;
+        }
+        .w300 {
+            font-weight: 300;
+        }
+        .green {
+            color: #67D291;
+        }
+        .purple {
+            color: #873CD9;
+        }
+        .magenta {
+            color: #C845F6;
+        }
+        .gray {
+            color: #7E888F;
+        }
+        .light-gray {
+            color: #C3C9CC;
+        }
+        .orb {
+            background-color: #ffffff;
+            display: block;
+            height: 1.5rem;
+            width: 1.5rem;
+            border-radius: 100%;
+            border: 2px solid currentColor;
+            position: relative;
+        }
+
+        .orb:before {
+          content: " ";
+          background-color: currentColor;
+          position: absolute;
+          left: calc(85% - 1rem);
+          top: calc(85% - 1rem);
+        display:block;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
+        }
+.connector {
+    display: block;
+    height: 100%;
+    width: 2px;
+    background: red;
+    margin-left: calc(50% - 1px);
+    background: linear-gradient(to bottom, 
+        #873CD9 0%,
+        #873CD9 50%,
+        #C3C9CC 51%,
+        #C3C9CC 100%)
 }
-.unskew {
-    transform: skewY(35deg);
+.negative-nudge {
+    margin-top: -2px;
 }
+
     </style>
   
     </head>
-    <body class="skew">
-    <div class="z1" style="transform: translateY(10vh);">
+    <body class="skew overflow-hidden">
+    <div style="transform: translateY(10vh);">
         <div class="clearfix col-8 bg-purple rounded stripe"></div>
         <div class="clearfix col-8 bg-pink mt1 rounded stripe"></div>
-        <div class="clearfix">
+        <div class="clearfix z4">
         <div class="col col-4"></div>  
         <div class="ml4 col col-2 bg-blue mt1 rounded stripe"></div>
-        <div class="ml4 col col-2 bg-green mt1 rounded stripe"></div>
+        <div class="z4 ml4 col col-2 bg-green mt1 rounded stripe"></div>
         </div>
     </div>
         <div class="unskew flex flex-center" style="min-height:100vh">
-        <div class="z4 shadow rounded mx-auto" style="background-color: #fafafa">
+        <div class=" shadow rounded mx-auto" style="background-color: #fafafa; min-width: 430px">
         <header class="center">
-        <h1>Your trip to New York</h1>
-        <p>Starts in 3 days</p>
+        <img class="mt3" src= "/images/plane.svg" width="70">
+        <h1 class="h2 mb1 w400">Your trip to New York</h1>
+        <p class="h3 gray mb3">Starts in 3 days</p>
         </header>
         <div class="border-bottom border-top p3">
-        <h2>Virgin America Flight 268</h2>
-        <p>Dec 23&mdash;Confirmation</p>
-        <p>#RL27L4</p>
-        <h3>San Francisco SFO</h3>
-        <P>Wed, Dec 23 11:15 PM</P>
-        <h3>New York JFK</h3>
-        <p>Thurs, Dec 24 7:50 AM</p>
+        <h2 class="h2 gray mb1 mt0">Virgin America Flight 268</h2>
+        <p class="h4 gray w300">Dec 23&mdash;Confirmation
+        <span class="h4 purple w400">#RL27L4</span></p>
+        <div class="flex mt3">
+            <div class="flex-none mr2 flex flex-column">
+            <div class="orb purple flex-none"></div>
+            <div class="connector flex-auto"></div>
+            </div>
+            <div class="flex-auto">
+                <h3 class="h1 regular purple negative-nudge mb0">San Francisco SFO</h3>
+                <P class="h3 gray w300 mb4">Wed, Dec 23 11:15 PM</P>
+            </div>
+        </div>
+        <div class="flex"><div class="orb light-gray flex-none mr2"></div>
+        <div class="flex-auto"><h3 class="h1 w400 magenta negative-nudge mb0">New York JFK</h3>
+        <p class="h3 gray w300 mb0">Thurs, Dec 24 7:50 AM</p></div></div>
         </div>
         <div class="center">
-        <p>Check in</p>
+        <p class="h3 caps letter-spacing bold green mb0 py2">Check in</p>
         </div>
         </div>
         </div>
