@@ -125,6 +125,24 @@
 .negative-nudge {
     margin-top: -2px;
 }
+.blastoff {
+    will-change: opacity transform;
+}
+
+.hover:hover {
+    background-color: #67D291;
+    color: white;
+    border-top-color: #67D291;
+    cursor: pointer;
+    border-radius: 0px 0px 8px 8px
+}
+
+.hover {
+    transition: background-color .1s ease-in-out,
+                color .1 ease-in-out,
+                border-top-color .1s ease-in-out,
+                cursor .1s ease-in-out;
+}
 
     </style>
   
@@ -142,7 +160,7 @@
         <div class="unskew flex flex-center" style="min-height:100vh">
         <div class=" shadow rounded mx-auto" style="background-color: #fafafa; min-width: 430px">
         <header class="center">
-<svg class="mt3" width="70" pversion="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<div class="blastoff"><svg class="mt3" width="70" pversion="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 48 48" style="enable-background:new 0 0 48 48;" xml:space="preserve">
 <style type="text/css">
     .st0{fill:#873CD9;}
@@ -155,12 +173,12 @@
     c0-0.073-0.024-0.146-0.098-0.195l-7.984-6.201l0.098-5.908c0.024-1.27-0.928-2.442-2.197-2.49
     c-1.343-0.073-2.466,1.025-2.417,2.368l0.098,6.031l-7.984,6.201c-0.049,0.049-0.098,0.122-0.098,0.195v2.539
     C13.709,29.414,13.807,29.488,13.904,29.463z"/>
-</svg>
+</svg></div>
 
         <h1 class="h2 mb1 w400">Your trip to New York</h1>
         <p class="h3 gray mb3">Starts in 3 days</p>
         </header>
-        <div class="border-bottom border-top p3">
+        <div class="border-top p3">
         <h2 class="h2 gray mb1 mt0">Virgin America Flight 268</h2>
         <p class="h4 gray w300">Dec 23&mdash;Confirmation
         <span class="h4 purple w400">#RL27L4</span></p>
@@ -179,9 +197,32 @@
         <p class="h3 gray w300 mb0">Thurs, Dec 24 7:50 AM</p></div></div>
         </div>
         <div class="center">
-        <p class="h3 caps letter-spacing bold green mb0 py2">Check in</p>
+        <p onclick="animateMe()" class=" border-top h3 caps letter-spacing bold green mb0 py2 hover">Check in</p>
         </div>
         </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
+        <script>
+        var restartAnim = anime({
+              targets: '.blastoff',
+              translateY: [
+    { value: 5, duration: 500, delay: 0, elasticity: 0 },
+    { value: 0, duration: 1, delay: 0, elasticity: 0 },
+    { value: '-50vh', duration: 2500, delay: 0, elasticity: 300, easing: "easeOutElastic"},
+    { value: 0, duration: 1, delay: 0, elasticity: 400 }
+  ],
+   opacity: [
+    { value: 1, duration: 1, delay: 0, elasticity: 0 },
+    { value: 0, duration: 1, delay: 3000, elasticity: 0 },
+    { value: 1, duration: 3500, delay: 0, elasticity: 0 }
+  ],
+              autoplay: false
+            });
+        function animateMe() {           
+            restartAnim.restart();
+            restartAnim.play();
+            console.log("Let's get down to business");
+            }
+        </script>
     </body>
 </html>
