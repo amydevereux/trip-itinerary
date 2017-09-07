@@ -83,6 +83,10 @@
         .magenta {
             color: #C845F6;
         }
+        .blue {
+            color: #49AFF9;
+        }
+
         .gray {
             color: #7E888F;
         }
@@ -149,12 +153,40 @@
     </head>
     <body class="skew overflow-hidden">
     <div style="transform: translateY(10vh);">
-        <div class="clearfix col-8 bg-purple rounded stripe"></div>
-        <div class="clearfix col-8 bg-pink mt1 rounded stripe"></div>
-        <div class="clearfix z4">
-        <div class="col col-4"></div>  
-        <div class="ml4 col col-2 bg-blue mt1 rounded stripe"></div>
-        <div class="z4 ml4 col col-2 bg-green mt1 rounded stripe"></div>
+       <div class="clearfix" style="transform: translateY(10vh);">
+        <div class="col col-left col-2"></div> 
+        <div class="col col-left col-8 bg-purple rounded stripe"></div>
+        <div class="col col-left col-2"></div>
+        </div>
+        <div class="clearfix container" style="transform: translateY(12vh);">
+        <div class="col col-left col-4"></div> 
+        <div class="col col-left col-4 bg-magenta rounded stripe"></div>
+        <div class="col col-left col-4"></div>
+        </div>
+          <div class="clearfix" style="transform: translateY(20vh);">
+        <div class="col col-left col-6"></div> 
+        <div class="col col-left col-4 bg-green rounded stripe"></div>
+        <div class="col col-left col-2"></div>
+        </div>
+           <div class="clearfix" style="transform: translateY(40vh);">
+        <div class="col col-left col-6"></div> 
+        <div class="col col-left col-5 bg-blue rounded stripe"></div>
+        <div class="col col-left col-1"></div>
+        </div>
+          <div class="clearfix" style="transform: translateY(50vh);">
+        <div class="col col-right col-7"></div> 
+        <div class="col col-right col-3 bg-blue rounded stripe"></div>
+        <div class="col col-right col-2"></div>
+        </div>
+        <div class="clearfix" style="transform: translateY(52vh);">
+        <div class="col col-right col-2"></div> 
+        <div class="col col-right col-6 bg-magenta rounded stripe"></div>
+        <div class="col col-right col-4"></div>
+        </div>
+          <div class="clearfix container" style="transform: translateY(64vh);">
+        <div class="col col-right col-2"></div> 
+        <div class="col col-right col-6 bg-green rounded stripe"></div>
+        <div class="col col-right col-4"></div>
         </div>
     </div>
         <div class="unskew flex flex-center" style="min-height:100vh">
@@ -203,6 +235,22 @@
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
         <script>
+            var fadeLeft = anime({
+              targets: '.col-left',
+              opacity: [0, 1],
+              delay: 500,
+              duration: 8000,
+              autoplay: false
+            });
+
+            var fadeRight = anime({
+              targets: '.col-right',
+              opacity: [0, 1],
+              delay: 500,
+              duration: 8000,
+              autoplay: false
+            });
+
         var restartAnim = anime({
               targets: '.blastoff',
               translateY: [
@@ -216,13 +264,42 @@
     { value: 0, duration: 1, delay: 3000, elasticity: 0 },
     { value: 1, duration: 3500, delay: 0, elasticity: 0 }
   ],
-              autoplay: false
+              autoplay: false,
+              begin: function() {
+                flyRight.reverse();
+                flyLeft.reverse();
+
+                setTimeout(function(){
+                    flyRight.restart();
+                    flyLeft.restart();
+                    fadeLeft.restart();
+                    fadeRight.restart();
+                }, 3000);
+                }
             });
         function animateMe() {           
             restartAnim.restart();
-            restartAnim.play();
             console.log("Let's get down to business");
             }
+
+            var flyLeft = anime({
+              targets: '.col-left',
+              translateX: ['-100vw', 0],
+              elasticity: 30,
+              duration: function(el, i, l) {
+                return 500 + (i * 500);
+
+              }
+            });
+            var flyRight = anime({
+              targets: '.col-right',
+              translateX: ['100vw', 0],
+              elasticity: 30,
+              duration: function(el, i, l) {
+                return 500 + (i * 500);
+
+              }
+            });
         </script>
     </body>
 </html>
